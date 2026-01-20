@@ -1,1 +1,7 @@
+from sklearn.decomposition import PCA
 
+def apply_pca(X_train, X_test, variance=0.95):
+    pca = PCA(n_components=variance)
+    X_train_pca = pca.fit_transform(X_train)
+    X_test_pca = pca.transform(X_test)
+    return X_train_pca, X_test_pca, pca
